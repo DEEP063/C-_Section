@@ -1,2 +1,47 @@
 C# Notes
 
+4 methods for Method Calling
+1> Call by Value : 
+  If you pass a parameter in custom method and change its value then its new new value stayed in custom method it do not affect original method
+  
+  if you pass ref when assign at both place then custom method changed its value permanently
+  
+2> Call by out
+  use out instead of ref but you are unable to assign a value
+  
+3> Call by params 
+  you can use unlimited num of params :  static int Add(int a , int b, params int[] list)
+  
+4> Named params 
+  you can pass name of parameter while calling a custom method
+   main : var res = RectArea(width: 35,heigh: 85)
+   RectArea(float height,float width)
+   
+Convert char to string : string greet = new string(letters)
+vice versa : greetings.ToCharArray()
+
+String Builder : When you change a var name then it will cretae another space in memory to store newly changed variable
+But if we use string builder then it will not take new space in memory
+StringBuilder sb = new StringBuilder(str);
+
+Constructor : constructor are use to assign a default value to its static class member
+>> Dot net will provide default constructor if u dont have any other type of constructor
+1> Default Constructor 
+  ex: int marks;
+      Test(){
+        this.marks = 30;
+      }
+      
+2> Parameterize Constructor: You need to pass parameters while calling a constructor
+  ex: int mrk;
+    Test(int marks)
+  {
+    this.mrk = marks;
+  }
+
+3> Copy Constructor : It is use to copy data of one instance to another
+4> Static Constructor: It is execute before the main method of the class
+  It is use to define static class members in it
+  static Test(){
+  this.maxmarks = 50;
+  }
