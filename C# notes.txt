@@ -1,4 +1,35 @@
+
 C# Notes
+
+Data Types
+  1> value Type 2> Reference type
+ 
+Value Type
+  int , float , bool etc are come in this category
+  Value Type directly store in Stack Section
+  
+REefernce Type
+  string , array , object are come in thos category
+  Reference Type create a reference in stack but store actual value in Stack 
+ 
+Type Casting 
+changing one data type to another
+Implicit : Changing samller value to larger value [Automatic]
+Explicit : Changing larger value to Smaller value [Forcefully]
+1> Simple Method 2>Boxing Method
+
+1> Simple Method : short ans = (short)(num1 + num2)
+2> Boxing Method :
+int a;
+obj i = a; [Boxing]
+int b = (int)i;[Unboxing]
+
+We can assign null to only refernce type 
+We cannot assign null to the value type
+  We need to do it forcefully
+  int? a = null;(valid)
+  
+  int b = a ?? 20 ; If a is not null it will take a But If a is null then it will take 20 or anything on that place
 
 4 methods for Method Calling
 1> Call by Value : 
