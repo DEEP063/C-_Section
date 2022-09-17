@@ -10,7 +10,7 @@ Value Type
   
 REefernce Type
   string , array , object are come in thos category
-  Reference Type create a reference in stack but store actual value in Stack 
+  Reference Type create a reference in stack but store actual value in Heap 
  
 Type Casting 
 changing one data type to another
@@ -73,6 +73,213 @@ Constructor : constructor are use to assign a default value to its static class 
 3> Copy Constructor : It is use to copy data of one instance to another
 4> Static Constructor: It is execute before the main method of the class
   It is use to define static class members in it
+  If any static constructor and any other constructor is defined 
+    then static constructor will execute first and then other constructor
   static Test(){
   this.maxmarks = 50;
   }
+  
+  
+ Polymorphism /Method overloding :
+ It can be use for diff datatypes 
+ change in params positon
+ change in sequence of parameters
+ 
+ We dont use Method overriding so much 
+ 
+ Operator Overloading
+  +,_,<,>
+  len3 = len1 + len2
+public static Len  operator +(Len 1 , Len2)
+
+  Access modifiers
+  By Default all class member (data members or methods) are private
+  By Default all classess in any namespace are internal (we cannot change to  private and protected)
+  Private : it only be acccess in its class
+  internal : it can be access anywhere in a project
+  public : it can be access anywhere in one project or another
+  protected : it uses concept of heritence only child class can access its parent's class data members
+  
+  you can use one class into another by crating its object
+  
+  In constructor we cannot do any logical conditions That's why we use Properties
+  Properties are use for filtering data members of a class
+  ex: public string Name {get,set}; => Autoimplement property
+  
+  C# will try to take default constructor first untill or unless u invoke parameterize constructor
+  ]If you make an instance of child class and invoke parameter constructor then child class parameter constructor execute
+  But if u want base class parameter execute then use 
+      public MyClass2(int b) : base(b)
+  If use static constructor in both the class then
+    child static class execute 1st then base class execute
+  
+  Object instance gives you 'has a' relationship
+  inheritance gives you a 'is a' relationship
+  
+  class Person {
+  public void Work(){
+  Console.write("It Works ..");
+  }
+  }
+  
+  class Employee : Person {
+  public void Work(){
+  Conole.Writeline("It earns...");
+  }
+  }
+  
+  Type        Constructor/value
+  Person p1 = new Employee();
+  p1.work();
+  =>  It Works
+  
+ Employee e1 = new Employee();
+ e1.work();
+ => It earns
+method overriding
+ By default C# takes Base class value
+ 
+ use "virtual" in custom method for base class
+  and use "override" in custom method for inheriting class
+  
+ use "sealed" to stop inheriting from one inerited to another in herited 
+ ex : public sealed override work()
+ 
+ We dont use Method overriding so much 
+ 
+ Abstraction Method
+ For abstaction we need to defined before class name
+ Abstract class Person(){
+ public abstract void Work();
+ }
+ class Toy : Person{
+  public override void Work{
+    Console.writeLine();
+  };
+ }
+ 
+ Dont use 'public' access modifier while inheriting  parent class
+ we can use this method in any other class just use 'override' in method
+ 
+ Interface
+ Abstraction method have some static or default class members method and abstract method
+ interface method have all method of interface only , Can't able to define static or default class members
+   interface Inte1{
+        void method1();
+        void method2();
+        void same();
+
+};
+
+    interface Inte2 {
+        void same();
+    }
+    class Robo 
+    {
+        public void m1()
+        {
+            Console.Write("T i Robo Method");
+        }
+    }
+
+    class Robo2 : Robo, Inte1, Inte2
+    {
+        public void method1()
+        {
+            Console.WriteLine("zz1");
+        }
+
+        public void method2()
+        {
+            Console.WriteLine("zz2");
+        }
+         void Inte2.same()
+        {
+            Console.WriteLine("Same 2");
+        }
+         void Inte1.same()
+        {
+            Console.WriteLine("Same 1");
+        }
+
+    }
+    public class Toy
+    {
+        static void Main(string[] args)
+        {
+            Robo2 ro = new Robo2();
+            ro.method1();
+            ro.method2();
+            Inte1 in1 = new Robo2();
+            in1.same();
+            Inte2 in2 = new Robo2();
+            in2.same();
+            ro.m1();
+        }
+    }
+ 
+ Sealed Class : you cannot inherit a sealed class
+ Partial Class : you can divide a class into parts but at run time they all will combine
+ partial class Myclass1{}
+ partial class Myclass2{}
+ 
+ Structure : structure are value type while class is reference type
+ you can not overrite a variable in struct but you can in class
+ 
+ Enum : It is use to give options to a user 
+ 
+ Regex:
+ [a-z] >> a to z
+ [a-m] >> a to m
+ ^[a-m]$ >> single character only
+ ^[a-m]{5}$ >> need 5 character not more or less
+ ^[a-m]{1,5}$ >> need character from 1 to 5 characters
+ ^[a-mA-Z]{1,5}$ >> involve capital case too
+ ^[0-9]{1,5}$ >> take num from 0 to 9
+^[A-za-z0-9]{3,20}@[A-Za-z]{3,10}.(com|co.in)$ >> email
+
+Collections 
+System.collections
+1> Arraylist
+It is an Object type
+
+Arraylist list;
+list = new ArrayList();
+list.Add("xyz");
+You can pass any datatype because collections are not bound with datatypes
+
+2> Stack >> last infirst out
+Stack stac;
+stac = new Stack();
+stac.push("Hi");
+stack.pop();
+
+3> Queue >> same as array
+Queue que;
+que = new Quueue();
+que.enwueue("jump");
+que.dequeue();
+
+4> hashtable >> key value paiir somthing like dictionaryयेंत्त्री
+Hashtable ht;
+ht = new HashTable();
+ht.Add("Key1","Value1");
+
+foreach(DictionaryEntry item in ht){
+  Console.WriteLine(item.key + ":" + item.value);
+}
+ 
+Generic Collection : You Just type casting the collections 
+Stack<int> stc;
+Dictionary<int,string> dict;
+
+File Handling
+When any file undergoes read and write property it becomes a stream
+Static class file
+File.Create("location");.Move;.Copy;,Delete;
+
+ 
+ 
+ 
+  
+  
