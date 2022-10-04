@@ -1,0 +1,2491 @@
+******************************************************************
+1
+
+******************************************************************
+2
+What is selenese ?
+A)  Selenium set of commands that run our test is called Selenese.. A sequence of these commands is a test script.. There are three types of selenese..
+
+https://addons.mozilla.org/en-US/fire...
+
+Selenium IDE Advantages
+
+• Very Easy to use
+• It has the capability to Convert test to different programming languages like C#, Java, Ruby, Python.
+• Programming language knowledge is not required for Selenium-IDE
+• In Selenium IDE, user can debug and breakpoints
+• Selenium IDE Flexible for the users. 
+
+Selenium IDE Disadvantages
+• As it is a Firefox plugin, its support is limited to only Firefox browser only.
+• Does not support iteration and conditional statements.
+• Does not support error handling.
+• Does not support test script reuse.
+• Does not support Database testing.
+• Cannot handle pop windows.
+******************************************************************
+3
+
+******************************************************************
+4
+How to get title, url and page source?
+How to get Page Title?
+How to get URL?
+How to get Page Source?
+
+How to get Page Title?
+Title is property present in IWebDriver Interface.
+This property gets the title of the current browser window. 
+It is a read only property
+Usage : string title=driver.Title;
+
+How to get URL?
+URL is property present in IWebDriver Interface.
+This property gets the current URL in the browser
+This property can be used to navigate to a URL 
+It is a read and write property
+Usage: driver.Url="http://Ankpro.com"; string url= driver.Url;
+
+How to get Page Source?
+PageSource is a property present in IWebDriver Interface.
+This property gets the source of the page loaded by the browser.
+It is a read only property.
+Usage: string pageSource=driver.GetPageSource;
+
+Possible Interview Questions: 
+Explain how to get page title
+Explain how to get and set url
+Explain how to get page source
+
+
+
+ankpro
+ankpro training
+Asp.net MVC
+C#
+C sharp
+Bangalore
+Rajajinagar
+Selenium
+Coded UI
+Mobile automation testing
+Mobile testing
+JQuery
+JavaScript
+.Net
+C
+C++
+Components of the .Net framework
+Hello World
+Literal
+Keywords
+Variable
+Data types
+Operators
+Branching
+Loops
+Arrays
+Strings
+Structures
+Enums
+Functions
+******************************************************************
+5
+How to manage browser window?
+How make browser to run in full window mode?
+How to minimize the browser window?
+How to maximize the browser window?
+How to set the browser window position?
+How to get the browser window position?
+How to set the browser window size?
+How to get the browser window size?
+
+Maximize, Minimize and FullScreen of browser Window
+Set and get the position and size of browser window
+
+Window property in IOptions interface
+Manage() is method present in WebDriver interface
+Manage() method returns Options object.
+Window is a property present in Options Interface
+
+How to FullScreen the Browser Window
+FullScreen() is a method present in IWindow interface.
+Sets the current window to full screen if it is not already in that state.
+Usage: driverManage().Window.FullScreen();
+driver.Manage() is a method that returns instance of Options interface, now the IOptions interface has method window() that returns instance of IWindow interface, this IWindow interface has method FullScreen() Sets the current window to full screen if it is not already in that state
+
+How to Maximize the Browser Window
+Maximize() is a method present in IWindow interface.
+This method will Maximizes the current window if it is not already maximized.
+Usage: driver.Manage().Window.Maximize();
+driver.Manage() is a method that returns instance of IOptions interface, now the IOptions interface has property Window that returns instance of IWindow interface, this Window interface has method Maximize that maximizes the current window if it is not already maximized.
+
+How to Minimize the Browser Window
+Minimize() is a method present in IWindow interface
+This method is used to Minimizes the current window if it is not already minimized.
+driver.Manage().Window.Minimize();
+
+Usage: driver.Manage().Window.Minimize();
+driver.Manage() is a method that returns instance of IOptions interface, now the IOptions interface has property Window that returns instance of IWindow interface, this Window interface has method Minimize that minimizes the current window if it is not already minimized.
+
+How to get and set window Position
+This property gets or sets the position of the browser window relative to the upper-left corner of the screen. 
+It is a read and write property.
+
+Usage: driver.Manage().Window.Position;
+
+driver.Manage() is a method that returns instance of IOptions interface, now the IOptions interface has property Window that returns instance of IWindow interface, this Window interface has property Position which gets and sets the position of the window.
+
+How to get and set size of window
+Size is property present in IWindow Interface.
+Gets or sets the size of the outer browser window, including title bars and window borders.
+It is a read and write property
+Usage: Size size=driver.Manage().Window.Size;
+driver.Manage().Window.Size=new Size(200,400);
+
+How to get and set Size
+driver.Manage().Window.Size;
+
+driver.Manage() is a method that returns instance of IOptions interface, now the IOptions interface has property Window that returns instance of IWindow interface, this Window interface has property Size which gets and sets the size of the browser window.
+
+Possible Interview Questions
+How to get and set position of browser window
+How to get and set the size of browser window
+How to Full screen, maximize and minimize the browser window
+
+[TestMethod]
+        public void ManageBrowserWindow()
+        {
+            IWebDriver driver = new FirefoxDriver();
+            driver.Url = "http://ankpro.com";
+
+            // Browser fullscreen, minimize and maximize
+            // Browser goes full screen
+            driver.Manage().Window.FullScreen();
+            Thread.Sleep(4000);
+            // Browser goes full screen
+            driver.Manage().Window.Minimize();
+            Thread.Sleep(4000);
+            // Browser goes full screen
+            driver.Manage().Window.Maximize();
+            Thread.Sleep(4000);
+
+            // Browser size property (Read and write)
+            // Setting the browser height and width
+            driver.Manage().Window.Size = new Size(400, 600);
+            Thread.Sleep(4000);
+            // Setting the browser height and width
+            Size size = driver.Manage().Window.Size;
+            Console.WriteLine(size);
+            Thread.Sleep(4000);
+
+            // Position property (Read and write)
+            // Move the browser window position
+            driver.Manage().Window.Position = new Point(400, 200);
+            Thread.Sleep(4000);
+            // get the position of the browser window
+            Point point=driver.Manage().Window.Position;
+            Console.WriteLine(point);
+            driver.Quit();            
+        }
+
+ankpro
+ankpro training
+C#
+C sharp
+Bangalore
+Rajajinagar
+Selenium
+Coded UI
+Mobile automation testing
+Mobile testing
+JQuery
+JavaScript
+.Net
+C
+C++
+Components of the .Net framework
+Hello World
+Literal
+Keywords
+Variable
+Data types
+Operators
+Branching
+Loops
+Arrays
+Strings
+Structures
+Enums
+Functions
+******************************************************************
+6
+How to navigate in browser window using selenium webdriver?
+Navigation from one url to another url
+Navigate forward and backward in current window
+Refreshing the current window
+
+How to Navigate new Web Page?
+Navigate() is a method present in IWebDriver interface.
+Navigate() method returns INavigation type
+GoToUrl() is a method present in INavigation interface
+Usage: driver.Navigate().GoToUrl(string Url);
+
+driver.Navigate() is a method that returns instance of INavigation interface, now the INavigation interface has method GoToUrl that load a new web page in the current browser window
+
+Here we passing Url as parameter to load
+
+How to Navigate Back?
+Back() is a method present in INavigation interface
+This method is used to Move back a single entry in the browser's history.
+
+Usage: driver.Navigate().Back();
+
+driver.Navigate() is a method that returns instance of INavigation interface, now the INavigation interface has method Back that Move back a single entry in the browser's history. 
+
+How to Navigate Forward?
+Forward() is a method present in INavigation Interface
+This method will move a single item forward in the browser's history.
+Usage: driver.Navigate().Forward();
+
+driver.Navigate() is a method that returns instance of INavigation interface, now the INavigation interface has method Forward that move a single "item" forward in the browser's history. 
+
+How to Refresh the Window Page?
+Refresh() is a method present in INavigation Interface
+This method will refreshes the current browser window page.
+Usage: driver.Navigate().Refresh();
+
+driver.Navigate() is a method that returns instance of INavigation interface, now the INavigation interface has method Refresh that refreshes the current browser window page. 
+
+Possible Interview Questions
+How to navigate to new window from current window?
+How to navigate forward and back from current browser window?
+How to refresh the current browser window?
+
+ankpro
+ankpro training
+Asp.net MVC
+C#
+C sharp
+Bangalore
+Rajajinagar
+Selenium
+Coded UI
+Mobile automation testing
+Mobile testing
+JQuery
+JavaScript
+.Net
+C
+C++
+Components of the .Net framework
+Hello World
+Literal
+Keywords
+Variable
+Data types
+Operators
+Branching
+Loops
+Arrays
+Strings
+Structures
+Enums
+Functions
+******************************************************************
+7
+Locators In Selenium Webdriver 
+Like our facebook page www.facebook.com/ankprotraining
+
+HTML DOM
+HTML Element
+HTML Element attributes
+ISearchContext Interface
+FindElement method
+FindElements method
+By Class
+WebDriver Locators
+
+HTML DOM
+The Document Object Model (DOM) is an application programming interface (API) for valid HTML and well-formed XML documents. 
+It defines the logical structure of documents and the way a document is accessed and manipulated.
+
+HTML Element
+An HTML element usually consists of a start tag and end tag, with the content inserted in between.
+
+ISearchContext interface
+ISearchContext interface has only two methods 
+FindElement() 
+FindElements()
+These methods will be abstract as ISearchContext is an interface.
+ISearchContext interface is inherited by IWebElement and IWebDriver
+
+FindElement() Method : 
+Locating element in IWebDriver is done by using the method “FindElement(By.locator())”.
+FindElement() method takes locator(By object) as an argument and returns a object of IWebElement.
+FindElement() method navigates to entire HTML document and identifies the element in GUI, by taking reference of locator.
+Finds the first webelement using the given method.
+Parameters: By- The locating mechanism.
+Returns: The first matching element on the current context.
+Throws: NoSuchElementException -If no elements found
+
+FindElements() method:
+Finds all elements within the current context using the given mechanism.
+Parameters: By-The locating mechanism in use
+Returns: A list of all Webelements
+If no elements found with locator, returns null
+
+What is By Class?
+All the locators are static methods, present in “By” class.
+FindElement()  and FindElements() methods uses By class to locate elements within a webpage. 
+Example for finding the element in DOM is 
+IWebElement element = driver.FindElement(By.Id(“UserName”));
+
+Locators in selenium
+Locators finds the element in HTML document
+Locators are static methods present in By class
+Locator methods return By object
+
+Id() locator method:
+Identify the element based on Id attribute.
+Gets a mechanism to find elements by their ID.
+public static By Id(string Id)
+Parameters: The value of the "id" attribute to search for
+Returns: A By object which locates elements by the value of the "id" attribute.
+
+Name() locator method :
+Identify the element based on name attribute.
+Gets a mechanism to find elements by their name.
+Public static By Name(string Name)
+Parameters: The value of the “Name" attribute to search for
+Returns: A By object which locates elements by the value of the “name" attribute.
+
+ClassName() locator method:
+Identify the element using class attribute
+Gets a mechanism to find elements by their CSS class.
+Public static By ClassName(string ClassName)
+Parameters: The value of the “class" attribute to search for
+Returns: A By object which locates elements by the value of the “class" attribute.
+
+TagName() locator method:
+Identify the element using HTML TagName.
+Gets a mechanism to find elements by their tag name.
+Public static By TagName(string Name)
+Parameters: Name-The elements TagName.
+Returns: A By object which locates elements by tagname.
+
+LinkText() locator method:
+Identify the element using name of the link.
+Gets a mechanism to find elements by their link text.
+Public static By LinkText(string LinkText)
+Parameters: LinkText- The exact text to match against
+Returns: A By object which locates elements by the exact link text
+
+PartialLinkText() locator method :
+Identify the element using part of link name.
+ Gets a mechanism to find elements by a partial match on their link text.
+Public static By PartialLinkText(string LinkText)
+Parameters: LinkText- The text to match against
+Returns: A By object which locates elements that contains the given link text
+
+CSSSelector() locator method :
+Gets a mechanism to find elements by their cascading style sheet (CSS) selector.
+Public static By CSSSelector(string Selector)
+Parameters: Selector-CSS expression
+Returns: A By object which locates elements by CSS selectors
+
+XPath() locator method :
+Identify the object using any attributes or visible text.
+Gets a mechanism to find elements by an XPath query.
+Public static By XPath(string XpathExpression)
+Parameters: XpathExpression- The Xpath to use
+Returns: A By object which locates elements via XPath
+
+Ideal locator order(Locator priority)
+Id
+Name
+Class
+Tag name
+Link text
+Partial link text
+CSSSelector
+Xpath
+
+Selenium locators Possible Interview Questions :
+What are HTML DOM and HTML elements.
+What is ISearchContext interface and explain its methods
+Explain the types of locators
+
+FindElement vs FindElements
+Xpath locator
+Selenium 8 locator
+Selenium locator strategy
+What is By class?
+What is ISearchContext interface?
+What is selenium locator priority?
+What is a HTML element?
+What is Document object model (DOM)?
+What is an html attribute?
+How to use Selenium locators?
+What is FindElement method?
+What is FindElements method?
+Return type of FIndElements?
+******************************************************************
+8
+Locating HTML elements using CSS selectors
+Like our facebook page www.facebook.com/ankprotraining
+
+What is a css locator?
+Locating Element Using CSS Selectors.
+Cascading Style Sheets (CSS) is a style sheet language
+
+How locate the elements in webpage using selenium css selector?
+
+1. * CSSSelector
+This is a wildcard, which will select all elements in the DOM.
+
+usage :  driver.FindElements(By.CssSelector(“*”))
+
+Selects all elements in DOM
+
+2. # CSSSelector
+This refers to Id , which will select all element which is having Id Attribute in the DOM.
+
+usage :  driver.FindElement(By.CssSelector(“#Email”))
+
+This selector will select a element whose id is Email
+
+3. . CSSSelector 
+This refers to class , which will select all element which is having class Attribute in the DOM.
+
+usage :  
+driver.FindElement(By.CssSelector(“. form-control”)).
+
+This selector will select a element whose class name is form-control.
+
+4. tagname[attribute=“value”] CSSSelector
+This refers to particular element with the tagname attribute and value 
+
+usage :  
+driver.FindElement(By.CssSelector(“input[name=‘Email’]”))
+
+This selector will select a element whose tagname is input, attribute is name and value is Email.
+
+5. ^ CSSSelector
+This refers to any attribute , which will select the first element, we would use ^= which means ‘starts with.
+
+usage :  
+driver.FindElement(By.CssSelector(“ a[href^='/Home']”))
+
+This selector will select a element whose tagname is a, attribute is href^ and value is /Home
+
+6. $ CSSSelector
+This refers to any attribute , which will select last element, we would use $= which means ‘ends with’
+
+usage :  
+driver.FindElement(By.CssSelector(“a[href$='Training']”))
+
+This selector will select a element whose tagname is a, attribute is href$ and value ends Training
+
+7. Element  Element CSSSelector
+This will select only the descendant element that is  preceded by the former element 
+
+usage :  
+driver.FindElement(By.CssSelector("footer p")).Text
+
+This selector will select a p element which is a descendant element of footer tag.
+
+8. Element + Element CSSSelector
+This will select only the element that is immediately preceded by the former element 
+
+usage :  
+driver.FindElement(By.CssSelector("h1+p")).Text
+
+This selector will select p tag element of preceded h1 tag.
+
+9.  Element Attribute CSSSelector
+This will select only the Attribute.
+
+usage :  
+driver.FindElement(By.CssSelector("form[role]")).Text
+
+This selector will select the element which is having a role attribute (With or without value).
+
+10.  Checked CSSSelector
+This will select the element which is checked (Check box and radio button)
+usage :  
+driver.FindElement(By.CssSelector("input[type=checkbox]:checked"))
+This selector will select the checked checkbox.
+
+Possible Interview Questions on css locators
+How to use different types of CSSSelector?
+How to select all elements in a DOM using CSS selector?
+How to select only checked or unchecked check boxes or radio buttons?
+How to select element by attribute name?
+******************************************************************
+9
+
+******************************************************************
+10
+
+******************************************************************
+11
+What is an Axis?
+Like our facebook page www.facebook.com/ankprotraining
+How XPath axis can be used to find the webelements in selenium?
+
+Xpath Axes 
+ Parent
+ Child
+ Following-sibling
+ Following
+ Preceding-sibling
+ Preceding
+ Ancestor
+ Descendant
+
+What is an Axes?
+An axes stores certain information about an element
+The information it stores depends on the axes being used
+For example, an axes called “parent" stores information about the parent of the current element
+We can use an axes by using it's name and target element
+Syntax : //tagname/axis::target element(s)
+Example: //h1/parent::div
+
+XPath using parent filter:
+Parent filter selects the parent element of the current element
+
+Syntax:.//tagname/parent::tagname
+
+usage : driver.FindElement(By.XPath(“//h1/parent::div”))
+
+This XPath will select parent div element of h1 tag
+
+XPath using child filter:
+Child filter selects the child element of the current element
+
+Syntax:.//tagname/child::tagname
+
+Usage : driver.FindElement(By.Xpath(“//footer/child::p”))
+
+This XPath will select child p element of footer tag
+
+XPath using following-sibling :
+Following-sibling filter selects all siblings elements after the current element
+
+Syntax:.//tagname/following-sibling::tagname
+
+Usage : driver.FindElement(By.Xpath(“//tr[6]/following-sibling::tr”))
+
+This XPath will select all tr elements of same parent after sixth tr tag 
+
+XPath using following:
+Following filter selects all elements after the current element
+
+Syntax:.//tagname/following::tagname
+
+Usage : driver.FindElement(By.Xpath(“//tr[6]/following::*”))
+
+This XPath will select all elements after sixth tr tag 
+
+XPath using preceding-sibling:
+Preceding-sibling filter selects all siblings elements before the current element
+
+Syntax:.//tagname/preceding-sibling::tagname
+
+Usage : driver.FindElement(By.XPath(“//tr[6]/preceding-sibling::tr”))
+
+This XPath will select all tr elements of same parent before sixth tr tag 
+
+XPath using preceding :
+Preceding filter selects all elements before the current element
+
+Syntax:.//tagname/preceding::tagname
+
+Usage : driver.FindElement(By.Xpath(“//tr[6]/ preceding ::*”))
+
+This XPath will select all elements before sixth tr tag 
+
+XPath using ancestor filter:
+Ancestor filter selects all ancestors (parent, grand parent, great grand parent etc.) of the current element
+
+usage : driver.FindElement(By.XPath(“//table/ancestor::div”))
+
+This XPath will select all parent div tags of table tag.
+
+XPath using descendant filter :
+Descendant filter selects all descendants (children, grand children, great grand children etc.) of the current element
+
+usage : driver.FindElement(By.XPath(“//table/descendant::td”))
+
+This XPath will select all child td tags of table tag.
+
+Possible Interview Questions on selenium xpath axis:
+
+Which are types of axes available in XPath.
+How to use parent filter in XPath
+How to use child filter in XPath
+How to use following and preceding sibling filters in XPath
+How to use following and preceding filters in XPath
+How to use ancestor filter in XPath
+How to use descendent filter in XPath
+
+Selenium xpath axis Code :
+     [TestMethod]
+  public void XPathAxes()
+  {
+   IWebDriver driver = new FirefoxDriver();
+   //driver.Url = "http://ankpro.com/";
+   //string s1 = driver.FindElement(By.XPath("//h1/parent::div")).Text;
+   //Console.WriteLine(s1);
+
+   //string s1 = driver.FindElement(By.XPath("//footer/child::p")).Text;
+   //Console.WriteLine(s1);
+
+   driver.Url = "http://www.ankpro.com/Home/Training";
+   //int s1 = driver.FindElements(By.XPath("//tr[6]/following-sibling::tr")).Count;
+   //Console.WriteLine(s1);
+
+   //int s1 = driver.FindElements(By.XPath("//tr[6]/following::*")).Count;
+   //Console.WriteLine(s1);
+
+
+   //int s1 = driver.FindElements(By.XPath("//tr[6]/preceding-sibling::tr")).Count;
+   //Console.WriteLine(s1);
+
+
+   //int s1 = driver.FindElements(By.XPath("//tr[6]/ preceding ::*")).Count;
+   //Console.WriteLine(s1);
+
+   //int s1 = driver.FindElements(By.XPath("//table/ancestor::div")).Count;
+   //Console.WriteLine(s1);
+
+   int s1 = driver.FindElements(By.XPath("//table/descendant::td")).Count;
+   Console.WriteLine(s1);
+   Thread.Sleep(3000);
+   driver.Quit();
+  }
+******************************************************************
+12
+
+******************************************************************
+13
+Selenium Locators Best Practices
+Like our facebook page www.facebook.com/ankprotraining
+
+
+Selenium Locators Best Practices :
+1.  If you have access to the developers ask them to add the IDs to elements
+
+2.  If application under test has lot of dynamic ids, target the stable part of the id
+
+ex: lessthan span id='myproduct-1234' greaterthan Xyz mobile phone lessthan /spangreaterthan
+
+ Then target only ‘myproduct’
+
+3. Your order of locator should be
+
+ If your target is single element
+   Id - Name - CSS Selector -Xpath(Relative)
+ If your target is multiple elements
+  ClassName - TagName - CSS Selector - Xpath(Relative)
+ If your target element is a link with shorter link text
+  LinkText -  href
+ If your target element is a link with longer link text
+  PartialLinkText - href
+
+4. Keep your XPath or CSS short
+
+   EX: Instead of //div/table[@id=‘mytable’]
+     use //*[id=‘mytable’] 
+     instead of div table #mytable
+     use #mytable
+
+5. If you do not get a element with Id or Name use the parent or child element as your reference in your relative xpath
+
+div id="subjects" class=”content”
+ ul
+  li English /li 
+  li Maths /li
+  li Science /li
+ /ul
+/div
+
+If your target element is  li English /li then you can find element by
+IWebElement firstSubject = driver.FindElement(By.CssSelector("#subjects li : first-child"))
+    or
+IWebElement firstSubject = driver.FindElement(By.XPath("//*[@id='subjects']/ul/child::li[1]"))
+
+6. Avoid absolute xpath
+
+Ex: /html/body/div/div/div/div/div/div[2]/div/div/div/div/div[2]/div/span
+
+7.  Avoid using xpath and css finding tools like firepath and chropath to get xpath of css as they may not give you optimized xpath or css. 
+
+8.  Always keep a cheat sheet in your work desk
+   
+Possible Interview Questions on Selenium locators best practices :
+What are the best practices of selenium Webdriver locators?
+What is the locators priority order?
+******************************************************************
+14
+Chropath chrome extension to find the Relative Xpath, Absolute Xpath and CSS. 
+Like our facebook page www.facebook.com/ankprotraining
+
+Chropath is  a chrome extension to find Relative Xpath, Absolute Xpath and CSS. This extension is getting popularity because Firefox's Firepath has stopped supporting latest firefox version.  
+
+What is Chropath?
+Why we need Chropath?
+How to setup Chropath?
+How to use Chropath?
+
+Chropath link for chrome browser:
+https://chrome.google.com/webstore/de...
+
+Chropath link for firefox browser:
+https://addons.mozilla.org/en-US/fire...
+
+ChroPath :
+ChroPath is one of the best chrome extension which gives the unique xpath (absolute/relative).
+It is a XPath finding extension for Chrome. 
+ChroPath also used as best CSS extension.
+
+Who Invented ChroPath?
+Sanjay Kumar-Senior Software developer engineer in test (SDET) at InMobi has invented ChroPath.
+
+Why we need ChroPath?
+ChroPath will generate the absolute XPath and CSS selector for inspected element/selected node.
+It will scroll the window to the 1st matching node 
+You can view the matching node(s) and nodes value as per their sequential occurrence. 
+A dashed blue outline appears around to highlight all the matching elements in the web page.
+
+How to setup ChroPath?
+Open link in Chrome browser and add the extension and install it.
+After installing this extension, reload the page for which you want to test it.
+
+How to Use ChroPath?
+Right-click on the web page, and then click Inspect.
+ In the right side of Elements tab, click on ChroPath tab.
+Type the XPath/CSS query and press enter key.
+
+Possible Interview Questions on Chropath chrome extension are,
+What is ChroPath?
+How to install and use ChroPath?
+Why we need ChroPath?
+Who created Chropath extension?
+******************************************************************
+15
+
+******************************************************************
+16
+Differences between FindElement  and FindElements methods of IWebElement
+Like our facebook page www.facebook.com/ankprotraining
+
+What is FindElement method
+What is FindElements method
+Differences Between FindElement And FindElements
+
+FindElement() method:
+Locating element in IWebDriver is done by using the method “FindElement(By.locator())”.
+FindElement() method takes By object as an argument and returns a reference of the object of type IWebElement.
+
+FindElements() method:
+FindElements() method takes By object as a parameter and returns a collection of type IWebElement.
+Finds all elements within the current context using the given By mechanism and returns a list of IWebElements
+
+Difference Between FindElement And FindElements :
+FindElement - On zero match : if element doesn’t exist or not available on the page then NoSuchElementException will be thrown.
+
+FindElements - On zero match : if element doesn’t exist or not available on the page then, the return value will be an empty list of IWebElements.
+
+
+
+FindElement - On one element match : Returns the found web element.
+
+FindElements - On one element match : Returns list of IWebElements which contains only one element.
+
+
+
+FindElement - On more than one element match : Returns the first appearance in DOM. 
+
+FindElements - On more than one element match : Returns all matched elements as a list of IWebElements .
+
+
+
+FindElement vs FindElements
+
+On Zero Match - throws NoSuchElementException - return an empty list
+On One Match - returns WebElement - Returns a list of one WebElement only
+On More than One Match - returns the first appearance in DOM - returns list with all matching instance
+
+
+Possible Interview Questions on findelement and findelements :
+What are the difference between FindElement() and FindElements()?
+******************************************************************
+17
+How to count checked and unchecked checkboxes using find elements method.
+Like our facebook page www.facebook.com/ankprotraining
+
+How to count the checked and unchecked checkboxes?
+
+Count Checked And Unchecked CheckBoxes :
+Every Web element has Selected property, which tells us that whether it has been checked or not.
+
+Usage:driver.FindElement(By.XPath("//input[@type='checkbox']")).Selected;
+
+This code will return true if the checkbox is checked else returns false
+
+Possible Interview Questions on checkbox checking
+
+How to count Checked and Unchecked checkboxes ?
+******************************************************************
+18
+How to use newline and tab characters in sendkeys?
+Like our facebook page www.facebook.com/ankprotraining
+
+How to type text in next line
+How to use tab between the text
+
+How To Type Text In New Line?
+To add text in next line we need to add \n to the text where you want keep the text in next line.
+
+Usage: driver.FindElement(By.Id("comment")).SendKeys("Good \n morning");
+
+This code will pass the morning text to next line.
+
+How To Use Tab In Sendkeys Method?
+To add tab between the text we need to add \t between the text.
+
+Usage:driver.FindElement(By.Id("comment")).SendKeys("Good \t morning");
+
+This code will give some space between Good the morning text.
+
+Possible Interview Questions on sendkeys method
+
+How to add text in next line?
+How to use new line character in SendKeys method?
+How to give tab between the Text?
+
+Code How to use newline and tab characters in sendkeys:
+
+[TestMethod]
+  public void TypeInNextLineAndTabBetweenText()
+  {
+   IWebDriver driver = new FirefoxDriver();
+   driver.Url = "http://uitestpractice.com/Students/Form";
+   driver.FindElement(By.Id("comment")).SendKeys("Good \t morning");
+   Thread.Sleep(2000);
+   driver.Quit();
+  }
+******************************************************************
+19
+How to find element within element using FindElement  multiple times
+Like our facebook page www.facebook.com/ankprotraining
+
+ISearchContext interface:
+To find element within element we need to use FindElement multiple times
+First Call IWebDriver’s FindElement then call IWebElement’s FindElement
+IWebDriver and IWebElement are Inherited from ISearchContext Interface.
+
+How To Find Element With In Element :
+Usage:driver.FindElement(By.Id("div3")).FindElement(By.TagName("span")).Text
+
+We are calling FindElement method from IWebdriver it will return div3 again we calling the findElement from IWebElement
+
+For the second FindElement SearchContext is reduced from entire DOM to only div3
+
+Possible Interview Questions on FindElements method:
+
+How to find element within the element
+
+[TestMethod]
+  public void ElementWithInElement()
+  {
+   IWebDriver driver = new FirefoxDriver();
+   driver.Url = "file:///F:/Bhavana%20Recording/Selenium%20using%20csharp/Chapter%2019-How%20to%20find%20element%20within%20element/Element%20within%20a%20element.html";
+   string s1 = driver.FindElement(By.Id("div3")).FindElement(By.TagName("span")).Text;
+   Console.WriteLine(s1);
+   Thread.Sleep(2000);
+   driver.Quit();
+  }
+******************************************************************
+20
+Dropdown and multiselect dropdown in selenium Webdriver
+Like our facebook page www.facebook.com/ankprotraining
+
+How To Handle Dropdown And Multiselect Dropdown In Selenium WebDriver?
+
+Agenda :
+Drop-down and Multi Select Drop-down
+SelectElement class
+Properties in SelectElement class
+Methods in SelectElement class
+
+Drop-Down And Multiselect Drop-Down :
+Drop-down list, or drop-down box, a drop-down menu is a list of items by which user can select a single item.
+Multiselect dropdown list control allows the user to select multiple items from the list.
+
+SelectElement Class :
+SelectElement is a class which is provided by Selenium to perform multiple operations on drop down list.
+Pass the Web Element to the constructor of SelectElement class.
+Object is created using below syntax.
+
+Syntax : SelectElement selectElement = new SelectElement(IWebElement);
+
+Select Element Options Property :
+
+Options { get; } : IList IWebElement
+
+This gets the list all options belonging to the Select tag.
+
+
+Select Element IsMultiple Property :
+
+IsMultiple { get; } : bool
+
+This tells whether the SELECT element support multiple selecting options at the same time or not. 
+
+This accepts nothing by returns true or false value. 
+
+
+Select Element SelectByText:
+
+void SelectByText(string text)
+
+We select an option given in any dropdowns and multiple selection boxes with SelectByText method.
+
+It takes a parameter of string which is one of the Value of Select element and it returns nothing.
+
+
+Select Element SelectByText :
+
+void SelectByText(string text)
+
+We select an option given in any dropdowns and multiple selection boxes with SelectByText method.
+
+It takes a parameter of string which is one of the Value of Select element and it returns nothing.
+
+
+Select Element DeSelect Methods :
+
+The way we select different values of DropDown & Multi Select, the same way we can also deselect the values. 
+
+This methods do not work for DropDown and only work for Multi Select elements.
+
+
+Select Element DeselectByText :
+
+void DeselectByText(string text)
+
+Deselect all options that display text matching the argument.
+
+It takes a parameter of string which is one of the Value of Select element and it returns nothing
+
+
+Select Element SelectByIndex :
+
+void SelectByIndex(int index)
+
+In this method we need to provide the index number of the option here rather the option text.
+
+It takes a parameter of int which is the index value of Select element and it returns nothing.
+
+
+Select Element DeselectByIndex :
+
+void DeselectByIndex(int index) 
+
+Deselect the option at the given index.
+
+It takes a parameter of int which is the index value of Select element and it returns nothing.
+
+
+Select Element SelectByValue :
+void SelectByValue(string value) 
+
+In this method we need to pass the value of the option rather the option text or index.
+
+It takes a parameter of String which is on of the value of Select element and it returns nothing.
+
+
+Select Element DeselectByValue :
+
+void DeselectByValue(string value) 
+
+Deselect all options that have a value matching the argument.
+
+It takes a parameter of String which is on of the value of Select element and it returns nothing.
+
+
+Select Element SelectedOption property :
+
+SelectedOption { get; } : IWebElement
+
+Gets the selected item within the select element.
+
+If more than one item is selected this will return the first item.
+
+
+Select Element AllSelectedOptions property :
+
+AllSelectedOptions { get; } : IList IWebElement
+
+Gets all of the selected options within the select element.
+
+
+Select Element DeselectAll :
+
+void DeselectAll()
+
+Clear all selected entries.
+
+This is only valid when the Select supports multiple selections.
+
+
+Possible Interview Questions on Selenium Select Element class :
+
+What is difference between drop-down and multi select drop-down?
+Which are the properties present in SelectElement class?
+Which are the methods present in SelectElement class?
+How to check whether the selectbox is singleListbox or multipleListBox ?
+******************************************************************
+21
+Differences between of handling HTML dropdown and bootstrap(non select tag) dropdown.
+
+Like our facebook page www.facebook.com/ankprotraining
+
+HTML Drop-down 
+BootStrap Drop-down
+Why we use BootStrap Dropdown
+
+What is HTML Dropdown?
+The select element is used to create a drop-down list.
+The option tags inside the select element define the available options in the list.
+
+What is BootStrap Dropdown?
+It doesn’t contain select tag instead it contains a button, ul and li tags.
+
+Why We Use BootStrap Dropdown?
+Bootstrap provides an easy and elegant mechanism for adding the dropdown menu.
+It makes look and feel of dropdown good.
+Bootstrap will make the controls ready for mobile.
+
+HTML Dropdown Code vs BootStrap Dropdown Code
+
+Possible Interview Questions selenium select element and bootstrap dropdown
+
+What is difference between HTML drop-down and BootStrap drop-down?
+******************************************************************
+22
+
+******************************************************************
+23
+Actions class Move To Element overloaded methods with examples
+Like our facebook page www.facebook.com/ankprotraining
+
+MoveToElement Method in Action Class
+
+MoveToElement(IWebElement toElement)- Moves the mouse to the specified element.
+MoveToElement(IWebElement toElement, int offsetX, int offsetY): Moves the mouse to the specified offset of the top-left corner of the specified element.
+MoveToElement(IWebElement toElement, int offsetX, int offsetY, MoveToElementOffsetOrigin offsetOrigin)- Moves the mouse to the specified offset of the top-left corner of the specified element.
+
+
+Possible Interview Questions on actions class:
+How to use MoveToElement methods?
+
+Code :
+actions.moveToElement(driver.findElement(By.id("div2")))
+ .build()
+ .perform();
+                         
+
+actions.moveToElement(driver.findElement(By.id("div2")), 20, 20)
+ .contextClick()
+ .build()
+ .perform();
+******************************************************************
+24
+
+******************************************************************
+25
+
+******************************************************************
+26
+How to click and hold a web element and release in selenium c#?
+Like our facebook page www.ankpro.com/ankprotraining
+
+ClickAndHold Method in Actions Class
+Release Method in Actions Class
+
+ClickAndHold method in actions class :
+ClickAndHold()-Clicks and holds the mouse button at the last known mouse coordinates.
+ClickAndHold(IWebElement onElement)-Clicks and holds the mouse button down on the specified element.
+
+Release Method in Actions Class :
+Release()- Releases the mouse button at the last known mouse coordinates.
+Release(IWebElement onElement)- Releases the mouse button on the specified element.
+
+Possible Interview Questions on click and hold webelement and release methods in selenium actions class:
+
+How to use ClickAndHold method with and without parameter. 
+How to use Release method with and without parameter
+
+Code :
+
+actions
+ .ClickAndHold(driver.FindElement(By.Name("one")))
+ .MoveToElement(driver.FindElement(By.Name("twelve")))
+ .Release()
+ .Build()
+ .Perform();
+
+actions
+ .MoveToElement(driver.FindElement(By.Name("one")))
+ .ClickAndHold()
+ .MoveToElement(driver.FindElement(By.Name("twelve")))
+ .Release()
+ .Build()
+ .Perform();
+
+actions
+ .ClickAndHold(driver.FindElement(By.Name("one")))
+ .Release(driver.FindElement(By.Name("twelve")))
+ .Build()
+ .Perform();
+******************************************************************
+27
+How to right click on a browser or web element in selenium C#?
+Like our facebook page www.facebook.com/ankprotraining
+
+ContextClick Method in Actions Class :
+
+ContextClick (right click) method in actions class:
+ContextClick()-Right clicks the mouse at the last known mouse coordinates.
+ContextClick(IWebElement onElement)-Right clicks the mouse on the specified element.
+
+Possible Interview Questions on selenium actions class ContextClick method :
+
+How to use ContextClick method with and without parameter. 
+
+Code :
+
+actions
+ .ContextClick(driver.FindElement(By.Name("four")))
+ .Build()
+ .Perform();
+
+actions
+ .MoveToElement(driver.FindElement(By.Name("four")))
+ .ContextClick()
+ .Build()
+ .Perform();
+******************************************************************
+28
+
+******************************************************************
+29
+
+******************************************************************
+30
+Actions class mouse drag and drop to offset method
+Like our facebook page www.facebook.com/ankprotraining
+
+Action class DragAndDropToOffset method :
+DragAndDropToOffset(IWebElement source, int offsetX, int offsetY)- Performs a drag-and-drop operation on one element to a specified offset.
+
+Possible Interview Questions on actions class drag and drop to offset method:
+
+
+How to use selenium actions class DragAndDropToOffset method?
+
+Code :
+
+actions
+ .DragAndDropToOffset(driver.FindElement(By.Id("draggable")), 150,20)
+        .Build()
+        .Perform();
+******************************************************************
+31
+How to use actions class Keydown And Keyup methods?
+Like our facebook page www.facebook.com/ankprotraining
+
+Actions class KeyDown method :
+KeyDown(string theKey)- Sends a modifier key down message to the browser.
+KeyDown(IWebElement element, string theKey)-
+Sends a modifier key down message to the specified         element in the browser.
+
+Actions class KeyUp method :
+KeyUp(string theKey) -Sends a modifier key up message to the browser.
+KeyUp(IWebElement element, string theKey)- Sends a modifier up down message to the specified element in the browser.
+
+Possible Interview Questions on actions class keydown and keyup methods:
+How to use selenium actions class KeyDown And KeyUp methods?
+
+Code :
+actions
+ .KeyDown(Keys.Control)
+ .Click(driver.FindElement(By.Name("one")))
+ .Click(driver.FindElement(By.Name("six")))
+ .Click(driver.FindElement(By.Name("eleven")))
+ .KeyUp(Keys.Control)
+ .Build()
+ .Perform();
+
+actions
+ .KeyDown(driver.FindElement(By.Name("one")), Keys.Control)
+ .KeyDown(driver.FindElement(By.Name("six")), Keys.Control)
+ .KeyUp(driver.FindElement(By.Name("eleven")), Keys.Control)
+ .Build()
+ .Perform();
+******************************************************************
+32
+
+******************************************************************
+33
+Fill entire web form in a single statement using actions class SendKeys method.
+Like our facebook page www.facebook.com/ankprotraining
+
+How to Fill entire form in a single statement using Actions class SendKeys?
+
+Actions class SendKeys method :
+SendKeys(string keysToSend)- Sends a sequence of keystrokes to the browser.
+SendKeys(IWebElement element, string keysToSend)- Sends a sequence of keystrokes to the specified element in the browser.
+
+
+Possible Interview Questions on actions class sendkey method :
+How to fill entire form in a single statement using actions SendKeys?
+
+Code :
+[TestMethod]
+public void FillFormUsingSendKeys()
+{
+ IWebDriver driver = new FirefoxDriver();
+
+ driver.Url = "http://ankpro.com/Account/Register";
+
+ Actions actions = new Actions(driver);
+ actions
+  .Click(driver.FindElement(By.Id("Email")))
+  .SendKeys("a@a.com" + Keys.Tab)
+  .SendKeys("password1234" + Keys.Tab)
+  .SendKeys("password1234" + Keys.Tab)
+  .Build()
+  .Perform();
+
+ Thread.Sleep(4000);
+ driver.Quit();
+}
+******************************************************************
+34
+Clear text box content by using actions class sendkeys method in selenium webdriver.
+Like our facebook page www.facebook.com/ankprotraining
+
+Clear text box content by using actions class sendkeys sendkeys method in selenium webdriver.
+
+Actions class SendKeys method :
+SendKeys(string keysToSend)- Sends a sequence of keystrokes to the browser.
+SendKeys(IWebElement element, string keysToSend)- Sends a sequence of keystrokes to the specified element in the browser.
+
+Actions class KeyDown method :
+KeyDown(string theKey)- Sends a modifier key down message to the browser.
+KeyDown(IWebElement element, string theKey)-
+Sends a modifier key down message to the specified         element in the browser.
+
+Actions class KeyUp method :
+KeyUp(string theKey) -Sends a modifier key up message to the browser.
+KeyUp(IWebElement element, string theKey)- Sends a modifier up down message to the specified element in the browser.
+
+Possible Interview Questions on actions class sendkeys, keyup and keydown methods.
+
+Code :
+
+[TestMethod]
+public void ClearTextWithoutUsingSendKeys()
+{
+ IWebDriver driver = new FirefoxDriver();
+
+ driver.Url = "http://ankpro.com/Account/Register";
+
+ Actions actions = new Actions(driver);
+ driver.FindElement(By.Id("Email")).SendKeys("test@test.com");
+ Thread.Sleep(2000);
+ actions
+  .Click(driver.FindElement(By.Id("Email")))
+  .SendKeys(Keys.Control + "a" + Keys.Backspace)
+  .Build()
+  .Perform();
+
+ Thread.Sleep(2000);
+ driver.Quit();
+}
+******************************************************************
+35
+Synchronization in selenium using Thread.Sleep and implicit wait explained in detail.
+Like our facebook page www.facebook.com/ankprotraining
+
+Synchronization
+Thread Sleep method
+Implicit Wait
+
+What is Synchronization in selenium?
+Process of matching automation tool speed with application tool speed is called synchronization.
+Whenever Webdriver try to perform action on the element is not loaded in UI or application, in such cases Webdriver throws ‘No such element exception’ and stops the execution because of the synchronization issue.
+
+Thread Sleep method :
+Thread Wait causes the currently executing thread to sleep for the specified number of milliseconds.
+It always waits for specified amount of time, even though element is available early.
+It is also called hard coded wait.
+
+Usage: Thread.Sleep(2000)
+
+Avoid using Thread.Sleep method in the production code.
+
+What is Implicit Wait in selenium?
+On implementing implicit wait, if WebDriver cannot find an element in the Document Object Model(DOM), it will wait for a defined amount of time for the element to appear in the DOM
+Driver will look for the element by polling every 500 milli second
+Driver will wait specified amount time or element is available in the DOM
+If the element is not available even after the specified time, driver will throw ElementNotFound exception
+Usage: driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+
+Possible Interview Questions on selenium synchronization using implicit wait and thread.sleep :
+What is Synchronization?
+What is Thread.Sleep wait?
+What is implicit wait?
+What is the difference between Thread.Sleep And ImplicitWait?
+
+Code :
+[TestClass]
+public class Synchronization
+{
+ [TestMethod]
+        public void SynchronizationUsingSleep()
+        {
+            IWebDriver driver = new FirefoxDriver();
+            driver.Url = "http://uitestpractice.com/Students/Co...";
+            driver.FindElement(By.PartialLinkText("This is")).Click();
+            Thread.Sleep(12000);
+            string result = driver.FindElement(By.ClassName("ContactUs")).Text;
+   Console.WriteLine(result);
+            Assert.IsTrue(result.Contains("Python"));
+
+
+            Thread.Sleep(1000);
+            driver.Quit();
+
+        }
+        [TestMethod]
+        public void SynchronizationUsingImplicitWait()
+        {
+            IWebDriver driver = new FirefoxDriver();
+   driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
+            driver.Url = "http://uitestpractice.com/Students/Co...";
+            driver.FindElement(By.PartialLinkText("This is")).Click();
+            //Thread.Sleep(12000);
+            string result = driver.FindElement(By.ClassName("ContactUs")).Text;
+            Assert.IsTrue(result.Contains("Python"));
+
+
+           driver.Quit();
+
+        }
+******************************************************************
+36
+
+******************************************************************
+37
+
+******************************************************************
+38
+
+******************************************************************
+39
+Synchronization issues with Mixing Implicit Wait And Explicit Wait in selenium webdriver.
+Like our facebook page www.facebook.com/ankprotraining
+
+ImplicitWait
+ExplicitWait
+Issues with mixing ImplicitWait and ExplicitWait
+
+Implicit Wait in selenium webdriver
+On implementing implicit wait, if WebDriver cannot find an element in the Document Object Model(DOM), it will wait for a defined amount of time for the element to appear in the DOM
+Driver will look for the element by polling every 500 milli second
+Driver will wait specified amount time or element is available in the DOM
+If the element is not available even after the specified time, driver will throw ElementNotFound exception
+Usage: driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+Explicit Wait in selenium webdriver :
+An explicit wait can only be implemented in cases where synchronization is needed for an element and the rest of the script is working fine.
+Explicit wait can be used to verify the page title, page url or to find the element.
+The Selenium WebDriver provides WebDriverWait and ExpectedCondition classes for implementing an explicit wait.
+ The WebDriverWait object will call the ExpectedConditions class method for every 500 milliseconds until it returns successfully or specified time is over.
+Usage:  WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20)); wait.Until(ExpectedConditions.ElementExists(By.ClassName("ContactUs")));
+
+Possible Interview Questions on implicit wait and explicit wait in selenium webdriver :
+What is ImplicitWait and ExplicitWait?
+What is the difference between Implicit and ExplicitWait?
+Which kind of issues we will face if we mix ImplicitWait and ExplicitWait ?
+
+Code :
+[TestMethod]
+public void ImplicitAndExplicitMix()
+{
+ IWebDriver driver = new ChromeDriver();
+        driver.Url = "http://uitestpractice.com/Students/Co...";
+            
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+        Stopwatch watch=null;
+        try
+        {
+         watch = Stopwatch.StartNew();
+
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+
+                wait.Until(ExpectedConditions.ElementExists(By.Id("Dummy")));
+
+                driver.FindElement(By.Id("something")).Click();
+
+           }
+           catch(Exception e)
+           {
+                watch.Stop();
+                Console.WriteLine(e);
+                Console.WriteLine(watch.ElapsedMilliseconds + " Milli seconds"); 
+  }
+            driver.Quit();
+        }
+******************************************************************
+40
+How to create Custom Expected Conditions class methods - explained with code.
+Like our facebook page www.facebook.com/ankprotraining
+
+How to create Custom expected condition?
+Expected Condition class methods :
+Supplies a set of common conditions that can be waited 
+All methods in this class are static
+Some of the methods are overloaded methods
+We can write custom Expected conditions method
+
+Why we need to create custom Expected Condition?
+We need custom expected conditions when the built-in Selenium WebDriver expected conditions are not sufficient for creating complex conditions.
+
+How To Write Custom Expected condition?
+The Until method of WebDriverWait class uses ExpectedConditions to wait for a particular condition(Represented by a method/lambda expression) to be met.
+ The Until method waits till one of the following events occurs:
+  The condition definition returns neither null nor false.
+  The condition definition returns an exception that is not in the list of ignored exception types.
+   The timeout period defined during WebDriverWait object creation expires.
+
+A custom ExpectedCondition can be written in 3 ways:
+
+            1. By defining a named method that has exactly one parameter of type IWebDriver and returns a value.
+            2. By writing a lambda expression that accepts exactly one parameter of type IWebDriver and returns a value.
+            3. By defining a method which returns a value of type Func IWebDriver, TResult
+
+  
+ private IWebElement WaitFor(IWebDriver driver)
+        {
+                IWebElement element = driver.FindElement(By.ClassName("ContactUs"));
+                if (element.Displayed && element.Enabled && element.Text.Contains("C#"))
+                {
+                    return element;
+                }
+                return null;            
+        }
+wait.Until IWebElement(WaitFor);
+
+By writing a lambda expression that accepts exactly one parameter of type IWebDriver and returns a value.
+
+wait.Until(d =
+            {
+                IWebElement element = driver.FindElement(By.ClassName("ContactUs"));
+                if (element.Displayed && element.Enabled && element.Text.Contains("C#"))
+               {
+                    return element;
+                }
+                return null;
+            });
+
+
+By defining a method which returns a value of type Func IWebDriver, TResult 
+
+public class CustomExpectedConditions
+    {
+public static Func IWebDriver, bool WaitForElementToContainText(By by)
+        {            
+            myCustomCondition = driver =
+            {
+                  IWebElement element= driver.FindElement(by);
+                if (element != null)
+                {
+                   if (element.Displayed && element.Enabled && element.Text.Contains("C#"))
+                        return true;
+                    else
+                        return false;
+                }
+                return false;
+            };
+
+By defining a method which returns a value of type Func IWebDriver, TResult
+
+wait.Until(CustomExpectedConditions.WaitForElementToContainText(By.ClassName("ContactUs")));
+
+Possible Interview Question on selenium webdriver custom expected conditions class :
+Can we create the custom expected conditions?
+How to create the custom expected conditions?
+Which are the different ways to create custom expected conditions?
+******************************************************************
+41
+How to handle javascript alert, prompt and confirm dialog boxes.
+Like our facebook page www.facebook.com/ankprotraining
+SwitchTo commands
+Simple Alert
+Prompt Alert
+Confirmation Alert
+
+SwitchTo Method :
+SwitchTo method provides access to alerts, frames and windows by returning ITargetLocator Interface reference.
+ITargetLocator provides access to alerts, frames and windows by its  methods Alert(), Frame() and Window()
+
+IAlert interface :
+SwitchTo Method returns ITargwtLocator interface reference.
+Alert method is a member of ITargwtLocator interface which returns IAlert reference.
+IAlert Interface : Defines the interface through which the user can manipulate JavaScript alerts. 
+
+Text property : Gets the text of the alert.
+Accept() method : Accepts the alert. 
+Dismiss() method : Dismisses the alert.
+SendKeys() method : Sends keys to the prompt.
+SetAuthenticationCredentials() method : Sets the user name and password in an alert prompting for credentials. 
+
+Handling javascript simple alert in selenium : 
+Alert is a small message box which displays on-screen notification to give the user some kind of information or ask for permission to perform certain kind of operation. 
+It may be also used for warning purpose.
+Usage:  driver.SwitchTo().Alert().Text
+              driver.SwitchTo().Alert().Accept()
+
+Handling javascript prompt in selenium : 
+This Prompt Alert asks some input from the user and selenium WebDriver can enter the text using sendkeys.
+Usage:  driver.SwitchTo().Alert().Text;
+               driver.SwitchTo().Alert().Accept();
+               driver.SwitchTo().Alert().Dismiss();
+               driver.SwitchTo().Alert().SendKeys(“abc”);
+
+Handling javascript confirm in selenium : 
+This confirmation alert asks permission to do some type of operation.
+Usage :  driver.SwitchTo().Alert().Text
+                driver.SwitchTo().Alert().Accept()
+                driver.SwitchTo().Alert().Dismiss();
+
+Possible Interview Questions on javascript alert, confirm and prompt : 
+What is SwitchTo method and in which interface it is present?
+What is Simple Alert and how to handle it?
+What is Prompt Alert and how to handle it?
+What is Confirmation Alert and how to handle it?
+
+Code :
+
+[TestMethod]
+public void SwitchToAlret()
+{
+ IWebDriver driver = new FirefoxDriver();
+ driver.Url = "http://uitestpractice.com/Students/Sw...";
+ driver.FindElement(By.Id("alert")).Click();
+ Thread.Sleep(1000);
+ string s = driver.SwitchTo().Alert().Text;
+ Console.WriteLine(s);
+ driver.SwitchTo().Alert().Accept();
+ Thread.Sleep(1000);
+ driver.Quit();
+ }
+
+[TestMethod]
+public void SwitchToConfirm()
+{
+ IWebDriver driver = new FirefoxDriver();
+ driver.Url = "http://uitestpractice.com/Students/Sw...";
+ driver.FindElement(By.Id("confirm")).Click();
+ Thread.Sleep(1000);
+ driver.SwitchTo().Alert().Dismiss();
+ Thread.Sleep(1000);
+ driver.Quit();
+ }
+
+[TestMethod]
+public void SwitchToPromt()
+{
+ IWebDriver driver = new FirefoxDriver();
+ driver.Url = "http://uitestpractice.com/Students/Sw...";
+ driver.FindElement(By.Id("prompt")).Click();
+ Thread.Sleep(1000);
+ driver.SwitchTo().Alert().SendKeys("demo");
+ Thread.Sleep(1000);
+ driver.SwitchTo().Alert().Accept();
+ driver.Quit();
+ }
+******************************************************************
+42
+How to switch to frames and switch back to default window explained with code :
+Like our facebook page www.facebook.com/ankprotraining
+
+IFrame :
+
+Frame is a web page which is embedded in another web page or an HTML document embedded inside another HTML document.
+The Frame is often used to insert content from another source, such as an advertisement, into a Web page. 
+The iframe tag specifies an inline frame.
+
+We can identify the iframes using methods given below:
+Right click on the element, if you find the option like ‘View frame source' then it is an iframe.
+Right click on the page and click 'View Page Source' and Search with the 'iframe', if you can find any tag name with the 'iframe' then it is meaning to say the page consisting an iframe.
+Usage :  driver.SwitchTo().Frame("iframe_a");
+
+How To Switch Back To Main Window?
+To get back to the main  you can use
+
+driver.switchTo().DefaultContent();
+
+Selects either the first frame on the page or the main document when a page contains iFrames.
+
+Possible Interview Questions on selenium switch to frames :
+How to handle frames in selenium webdriver?
+How to navigate back to main Window after switching into Frames?
+
+Code :
+
+[TestMethod]
+public void SwitchToFrame()
+{
+ IWebDriver driver = new FirefoxDriver();
+ driver.Url = "http://uitestpractice.com/Students/Sw...";
+ driver.SwitchTo().Frame("iframe_a");
+ driver.FindElement(By.Id("name")).SendKeys("Ankpro");
+ Thread.Sleep(2000);
+ driver.SwitchTo().DefaultContent();
+ driver.FindElement(By.LinkText("uitestpractice.com")).Click();
+ Thread.Sleep(3000);
+ driver.Quit();
+ }
+******************************************************************
+43
+How to switch between multiple windows and difference between close and quit.
+Like our facebook page : www.facebook.com/ankprotraining
+
+How to Switch between multiple windows?
+Multiple Window Handles -  
+When we have multiple windows in test automation, all we need to do is switching the focus from one window to another.
+Usage:  driver.SwitchTo().Window(driver.WindowHandles[1])
+
+How To Get the Current Window Id?
+CurrentWindowHandle: Gets the current window handle, which is an opaque handle to this window that uniquely identifies it within this driver instance.
+
+Difference between driver.Quit() And driver.Close()
+driver.Close()-This method is used to close the current open window. It closes the current open window on which driver has focus on.
+driver.Quit()-This method is used to destroy the instance of WebDriver. It closes all Browser Windows associated with that driver and safely ends the session.
+
+Possible Interview Questions on switching between windows in selenium webdriver :
+How to handle multiple windows in selenium webdriver?
+What is current window handle?
+What is window handles?
+What is the difference between driver.Quit() And driver.Close()
+
+Code :
+[TestMethod]
+public void WindowHandlesDemo1()
+{
+ IWebDriver driver = new FirefoxDriver();
+ driver.Url = "http://uitestpractice.com/Students/Sw...";
+ #region One
+ Console.WriteLine("Before click");
+ Console.WriteLine("Number of windows opened by selenium : " + driver.WindowHandles.Count);
+ foreach (var item in driver.WindowHandles)
+ {
+  Console.WriteLine(item);
+  }
+ Console.WriteLine("Current window handle : " + driver.CurrentWindowHandle);
+ #endregion
+
+ #region Two   
+ driver.FindElement(By.LinkText("Opens in a new window")).Click();
+ Console.WriteLine("After click");
+ Thread.Sleep(2000);
+ Console.WriteLine("Number of windows opened by selenium : " + driver.WindowHandles.Count);
+ foreach (var item in driver.WindowHandles)
+ {
+  Console.WriteLine(item);
+  }
+
+ // I'm switching a newly opened window and trying get an element from that window
+ driver.SwitchTo().Window(driver.WindowHandles[1]);
+ Console.WriteLine(driver.FindElement(By.Id("draggable")).Text);
+ Console.WriteLine("Current window handle : " + driver.CurrentWindowHandle);
+ #endregion
+
+ #region Third
+ // I want to close the newly opened window
+ Console.WriteLine("After close");
+ driver.Close();
+ 
+ Console.WriteLine("Number of windows opened by selenium : " + driver.WindowHandles.Count);
+ foreach (var item in driver.WindowHandles)
+ {
+  Console.WriteLine(item);
+  }
+ Thread.Sleep(2000);
+ driver.SwitchTo().Window(driver.WindowHandles[0]);
+ Console.WriteLine("Current window handle : " + driver.CurrentWindowHandle);
+ #endregion
+ 
+ Thread.Sleep(1000);
+ driver.Quit();
+ }
+******************************************************************
+44
+How to handle modal window | How to switch bootstrap modal pop up window.
+Like our facebook page www.facebook.com/ankprotraining
+
+A modal window is dialog that forces the user to interact with it before they can go back to using the parent application.
+
+Possible Interview Questions on handling basic authentication window :
+How to handle modal window?
+How to switch to modal window?
+How find the elements in modal window?
+******************************************************************
+45
+How to handle basic authentication window in selenium webdriver explained :
+
+Like our facebook page : www.facebook.com/ankprotraining
+
+Selenium switch to basic authentication :
+This is a Basic authentication window used to accept the username and password with browser alert popup
+We will get this popup when we try access a server resource which requires authentication
+This popup appears the moment we enter the url in the address bar
+
+We can handle basic authentication in 4 ways
+ 1. Passing user name and password along with the url
+  driver.Url=“http://UserName:Password@ankpro.com”
+ 2. alert.SetAuthenticationCredentials method. 
+  driver.SwitchTo().Alert().SetAuthenticationCredentials(“username”,”password”)
+ 3. Using SendKeys
+  alert.SendKeys( "username" + Keys.Tab + "password" + Keys.Tab); alert.Accept();
+ 4. We can use the third party automation tools like AutoIt or Sikuli for sending the keys to this window.
+
+The approach to handle authentication window popup may be different in each browser, try any one of mentioned method.
+In case your authentication server requires username with domain like "domainuser" you need to add double slash  to the url:
+ //domainname\user:password@example.com
+If your username or password is having @ symbol then replace it with %40
+
+Possible Interview Questions on selenium webdriver handling of basic authentication window :
+How to handle basic authentication windows?
+******************************************************************
+46
+How to Take Screenshot | ITakesScreenshot interface | Get browser screenshot
+Like our facebook page www.facebook.com/ankprotraining
+Capturing Screenshot in selenium webdriver using ITakesScreenshot interface :
+Selenium WebDriver provides the capability to capture screenshots during a test execution. 
+
+It is always good to capture the screenshot of the test results if you are running the tests overnight.
+
+The capability to take a screenshot with selenium is extracted from the "ITakesScreenshot" interface that allowing us to take a screenshot of the current page displayed in the driver instance.
+
+ITakesScreenshot interface :
+Defines the interface used to take screen shot images of the screen.
+
+Usage : 
+((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("Test.png",ScreenshotImageFormat.Png);
+
+How to take browser screenshot in selenium?
+((ITakesScreenshot)driver)-Connecting the ITakesScreenshot with the Driver instance.
+GetScreenshot ()-This method will take the screenshot
+SaveAsFile ()-The method receives two parameters
+FileName-The full path and file name to save the screenshot to.
+Format: Indicating the format to save the image to.
+
+Possible Interview Questions on how to capture the browser screenshot:
+How to capture the screenshot
+
+Code :
+[TestMethod]
+public void Screenshot()
+{
+ IWebDriver driver = new FirefoxDriver();
+ driver.Url = "http://ankpro.com/";
+ ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("Test.png", ScreenshotImageFormat.Png);
+ driver.Quit();
+ }
+******************************************************************
+47
+
+******************************************************************
+48
+How to Take screenshot of specific element using C# extension method
+Like our facebook page www.facebook.com/ankprotraining
+
+How to Take screenshot of specific element using extension method
+Take Screenshot Of Specific Element Using Extension Method :
+Capturing Screenshot :
+Selenium WebDriver provides the capability to capture screenshots during a test execution. 
+
+It is always good to capture the screenshot of the test results if you are running the tests overnight.
+
+The capability to take a screenshot with selenium is extracted from the "ITakesScreenshot" interface that allowing us to take a screenshot of the current page displayed in the driver instance.
+
+C# Extension Method:
+Extension methods enable you to add methods to existing types without creating a new derived type, recompiling, or otherwise modifying the original type
+An extension method is a special kind of static method.
+
+How To Take Screenshot Of Specific Element Using Extension Method :
+static class Utils
+{
+public static void TakeScreenshot2(this IWebDriver driver, IWebElement element)
+{
+string fileName = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".jpg";
+Byte[] byteArray = ((ITakesScreenshot)driver).GetScreenshot().AsByteArray;
+Bitmap screenshot = new Bitmap(new System.IO.MemoryStream(byteArray));
+Rectangle croppedImage = new Rectangle(element.Location.X, element.Location.Y, element.Size.Width, element.Size.Height);
+screenshot = screenshot.Clone(croppedImage, screenshot.PixelFormat);
+screenshot.Save(String.Format(fileName, ImageFormat.Jpeg));
+}
+}
+
+How To Take Screenshot Of Specific Element Using Extension Method :
+TakeScreenshot( driver.FindElement(By.ClassName("jumbotron")));
+
+Possible Interview Questions on selenium webdriver screenshot using c# extension method:
+How to capture the screenshot of specific element using extension method
+
+Code :
+[TestMethod]
+public void ScreenshotOfElementUsingExtensionMethod()
+{
+ IWebDriver driver = new FirefoxDriver();
+ driver.Url = "http://ankpro.com/";
+ driver.TakeScreenshot1(driver.FindElement(By.ClassName("jumbotron")));
+ driver.Quit();
+ }
+ 
+static class Utils
+{
+ public static void TakeScreenshot1(this IWebDriver driver,IWebElement element)
+ {
+  string fileName = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".jpg";
+  Byte[] byteArray = ((ITakesScreenshot)driver).GetScreenshot().AsByteArray;
+  Bitmap screenshot = new Bitmap(new System.IO.MemoryStream(byteArray));
+  Rectangle croppedImage = new Rectangle(element.Location.X, element.Location.Y, element.Size.Width, element.Size.Height); 
+  screenshot = screenshot.Clone(croppedImage, screenshot.PixelFormat);
+  screenshot.Save(String.Format(fileName, ImageFormat.Jpeg));
+  }
+ }
+******************************************************************
+49
+How to capture video of the test case execution using MS expression encoders
+Like our facebook page www.facebook.com/ankprotraining
+How to capture video of the test case execution?
+
+Microsoft Expression Encoder :
+Expression Encoder is a professional encoding tool that offers enhancement, encoding, and publishing of rich video experiences with Microsoft Silverlight. 
+We need to create the object of ScreenCaptureJob class present in Microsoft.Expression.Encoder.ScreenCapture namespace
+
+How To Capture Video Of The Test Case Execution:
+
+[TestMethod]
+public void VideoRecord()
+{
+ScreenCaptureJob scj = new ScreenCaptureJob();
+scj.OutputScreenCaptureFileName = @"D:\Results\Test.avi";   
+scj.Start();
+IWebDriver driver = new ChromeDriver();
+driver.Url = "http://ankpro.com";
+scj.Stop();
+driver.Quit();
+}
+
+Possible Interview Questions on test case video recording in selenium :
+How to capture the video of test case execution?
+******************************************************************
+50
+
+******************************************************************
+51
+Javascript executor
+IJavascript Interface
+Alert using JavascriptExecutor
+Refresh the page using JavascriptExecutor
+Handle checkbox using JavascriptExecutor
+InnerText using JavascriptExecutor
+Get the Title of a page using  JavascriptExecutor
+Get a domain of a page using JavascriptExecutor
+Get a URL of a page using JavascriptExecutor
+How to scroll a page using JavascriptExecutor
+How to navigate to other page using JavascriptExecutor
+Type text of JavascriptExecutor
+How to get height and width of a page using  JavascriptExecutor
+
+What is JavaScript?
+JavaScript is the preferred language inside the browser to interact with HTML dom. 
+This means that a Browser has JavaScript implementation in it and understands the JavaScript commands. 
+
+What is IJavaScriptExecutor?
+ 
+IJavaScriptExecutor is an Interface that helps to execute JavaScript through Selenium Webdriver.
+
+IJavaScriptExecutor provides two methods "executescript" & "executeAsyncScript“ to run JavaScript on the selected window or current page.
+
+Alert Pop Window
+We can create the alert pop-up using allowing code
+ (IJavaScriptExecutor)driver).ExecuteScript(“alert('Hello')");
+
+To Refresh The Page
+We can refresh the page by using following code
+ ((IJavaScriptExecutor)driver).ExecuteScript("history.go(0)");
+
+To Handle Checkbox
+To make the checkbox has checked
+ ((IJavaScriptExecutor)driver).ExecuteScript("document.querySelectorAll('input[value = read]')[0].click()");
+
+To make the checkbox has unchecked
+ ((IJavaScriptExecutor)driver).ExecuteScript("document.querySelectorAll('input[value = read]')[0].click()");
+
+To Get The Inner Text
+We can the inner text of page by using following code
+ ((IJavaScriptExecutor)driver).ExecuteScript("return document.documentElement.innerText;").ToString();
+
+To Get The Title Of Page
+We can get title of page by using following code
+ ((IJavaScriptExecutor)driver).ExecuteScript("return document.title;").ToString();
+
+To Get The Domain Of Page
+We can get Domain of page by using following code
+((IJavaScriptExecutor)driver).ExecuteScript("return document.domain;").ToString();
+
+To Get The URL Of Page
+We can get URL of page by using following code
+((IJavaScriptExecutor)driver).ExecuteScript("return document.URL;").ToString();
+
+To Scroll The Page
+To scroll the page vertically for 500px we use the following code
+((IJavaScriptExecutor)driver).ExecuteScript("window.scrollBy(0,500)");
+
+To scroll the page vertically till the end we use following code
+IJavaScriptExecutor)driver).ExecuteScript("window.scrollBy(0,document.body.scrollHeight)");
+
+To navigate other page
+We can navigate to other page by using following code
+(IJavaScriptExecutor)driver).ExecuteScript("window.location='http://uitestpractice.com'");
+
+To Get The Height And Width of page
+We can height and width of a page by using following code
+((IJavaScriptExecutor)driver).ExecuteScript("return window.innerHeight;")
+((IJavaScriptExecutor)driver).ExecuteScript("return window.innerWidth;")
+
+To Type The Text
+We can type the text into a text box by using following code
+((IJavaScriptExecutor)driver).ExecuteScript("document.getElementById('Email').value='abc@abc.com';");
+
+Possible Interview Questions on IJavaScriptExecutor
+What is Javascript
+What is IJavascriptExecutor
+How to create alert using IJavaScriptExecutor
+How to refresh the page using IJavaScriptExecutor
+How to handle the checkbox using IJavaScriptExecutor
+How to get the InnerText of javascript Executor
+How to get the title of a page using IJavaScriptExecutor
+How to get a domain of a page using IJavaScriptExecutor
+How to get a URL of a page using IJavaScriptExecutor
+How to scroll a page using IJavascriptExecutor
+How to navigate to other page using IJavascriptExecutor
+How to get the height and width of a page using IJavascript Executor
+How to type text into text box using IJavaScriptExecutor
+
+Code : 
+[TestMethod]
+public void JavaScriptDemo()
+{
+ IWebDriver driver = new FirefoxDriver();
+ driver.Url = "http://ankpro.com";
+
+ //((IJavaScriptExecutor)driver).ExecuteScript("prompt('Hello')");
+ //((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", "element");
+
+ //((IJavaScriptExecutor)driver).ExecuteScript("history.go(0)");
+
+ driver.Url = "http://uitestpractice.com/Students/Form";
+ //((IJavaScriptExecutor)driver).ExecuteScript("document.getElementByValue('dance').checked=true;");
+ ((IJavaScriptExecutor)driver).ExecuteScript("document.querySelectorAll('input[value = read]')[0].click()");
+
+ //String sText = ((IJavaScriptExecutor)driver).ExecuteScript("return document.documentElement.innerText;").ToString();
+ //Console.WriteLine(sText);
+
+ //String sText1 = ((IJavaScriptExecutor)driver).ExecuteScript("return document.title;").ToString();
+ //Console.WriteLine(sText1);
+
+ //String Text = ((IJavaScriptExecutor)driver).ExecuteScript("return document.domain;").ToString();
+ //Console.WriteLine(Text);
+
+ Thread.Sleep(2000);
+ driver.Quit();
+ }
+******************************************************************
+52
+
+******************************************************************
+53
+Face book links
+www.facebook.com/ankpro
+www.facebook.com/ankprotraining
+
+Agenda
+Cross browser testing for Chrome browser
+Cross browser testing for Firefox browser
+Cross browser testing for IE browser
+Cross browser testing for Edge browser
+
+What is Cross Browser Testing?
+
+Cross Browser Testing is a type of functional test to check that your web application works as expected in different browsers.
+
+Cross browser testing is the process of comparing a website or web application’s functionality and design across multiple web browsers and platforms to ensure consistent behavior and functionality for the end-user. 
+
+Why do we need Cross Browser Testing?
+
+Web-based applications are totally different from Windows applications. A web application can be opened in any browser by the end user so we need to do cross browser testing.
+
+Cross Browser Testing for Chrome Browser :
+
+First we need to add Chrome driver from nuget package
+
+         [TestMethod]
+        public void LaunchChromeBrowser()
+        {
+            IWebDriver driver = new ChromeDriver();
+            driver.Url = "http://ankpro.com/";
+            driver.Quit();
+         }
+
+Cross Browser Testing for Firefox Browser
+
+First we need to add Gecko driver from nuget package
+
+         [TestMethod]
+        public void LaunchFirefoxBrowser()
+        {
+            IWebDriver driver = new FirefoxDriver();
+            driver.Url = "http://ankpro.com/";
+            driver.Quit();
+         }
+
+Cross Browser Testing for IE Browser
+
+First we need to add Internet Explorer driver from nuget package
+
+[TestMethod]
+        public void LaunchIEBrowser()
+        {
+            IWebDriver driver = new InternetExplorerDriver();
+            driver.Url = "http://ankpro.com/";
+            driver.Quit();
+         }
+
+Cross Browser Testing for Edge Browser
+
+First we need to add Executable file for edge browser to the solution project
+
+        [TestMethod]
+        public void LaunchEdgeBrowser()
+        {
+            IWebDriver driver = new EdgeDriver();
+            driver.Url=("http://ankpro.com/");
+            driver.Quit();
+        }
+
+Possible Interview Questions on cross browser selenium testing
+What is cross browser testing 
+Why we need to do cross browser testing
+How to do cross browser testing for Chrome browser
+How to do cross browser testing for Firefox browser
+How to do cross browser testing for IE browser
+How to do cross browser testing for Edge browser
+
+
+Cross browser testing code :
+
+
+ [TestMethod]
+public void LunchFireFoxBrowser()
+{
+ IWebDriver driver = new FirefoxDriver();
+        driver.Url = "http://ankpro.com/";
+ driver.Quit();
+        }
+
+[TestMethod]
+public void LunchChromeBrowser()
+{
+ IWebDriver driver = new ChromeDriver();
+        driver.Url = "http://ankpro.com/";
+        driver.Quit();
+        }
+
+[TestMethod]
+public void LunchIEBrowser()
+{
+ IWebDriver driver = new InternetExplorerDriver();
+        driver.Url = "http://ankpro.com/";
+        driver.Quit();
+        }
+
+[TestMethod]
+public void LunchEdgeBrowser()
+{
+ IWebDriver driver = new EdgeDriver();
+        driver.Url=("http://ankpro.com/");
+        driver.Quit();
+        }
+******************************************************************
+54
+
+******************************************************************
+55
+What is ChromeOptions class?
+What is FirefoxOptions class?
+Test case execution using chrome in headless mode
+Test case execution using Firefox in headless mode
+
+#selenium #qa #testing #seleniumcsharp #chrome #chromeheadless #firefox #firefoxheadless #automation #tester #seleniumautomation #automationtesting #webdriver #softwaretesting
+
+What is ChromeOptions class?
+Class to manage options specific to OpenQA.Selenium.Chrome.ChromeDriver
+public void AddArgument(string argument); 
+     Adds a single argument to the list of arguments to be appended to the Chrome.exe command line.
+Example : 
+ChromeOptions options = new ChromeOptions();             
+options.AddArgument("--headless");
+
+What is FirefoxOptions class?
+Class to manage options specific to OpenQA.Selenium.Firefox.FirefoxDriver
+ public void AddArgument(string argument); 
+Adds a single argument to the list of arguments to be appended to the Firefox.exe command line.
+Example : 
+FirefoxOptions options = new FirefoxOptions();             
+options.AddArgument("--headless");
+
+Possible Interview Questions on Chrome and firefox headless execution
+What is a ChromeOptions class?
+How to execute the test cases in Chrome Headless browser?
+What is a FirefoxOptions class?
+How to execute the test cases in Firefox Headless browser?
+
+
+Program :
+
+[TestMethod]
+        public void ChromeAndFirefoxHeadless()
+        {
+            //ChromeOptions options = new ChromeOptions();
+            //options.AddArgument("--headless");
+
+            FirefoxOptions options = new FirefoxOptions();
+            options.AddArgument("--headless");
+
+            IWebDriver driver = new FirefoxDriver(options);
+            driver.Url = "http://ankpro.com";
+
+            string s = driver.FindElement(By.ClassName("lead")).Text;
+
+            Console.WriteLine(s);
+
+            driver.Quit();
+        }
+******************************************************************
+56
+#seleniumcsharp #selenium #fullpagescreenshot
+
+Link to extension method : https://www.youtube.com/watch?v=-SU2d...
+Link to Screenshot capture : https://www.youtube.com/watch?v=B4rbf...
+
+Agenda
+Issue with ITakeScreenshot interface implementation
+Noksa.WebDriver.ScreenshotsExtensions nuget package
+Implementation of fullpage screenshot capturing for chrome and firefox
+
+
+Noksa.WebDriver.ScreenshotsExtensions nuget package
+using WDSE;
+ ExtensionMethods class
+  TakeScreenshot – Extension method gets added to webdriver interface
+  ToMagicImage – Extension method for byte[] and used to save the image
+using WDSE.Decorators;
+ VerticalCombineDecorator – Sets vertical screen capture 
+using WDSE.ScreenshotMaker;
+ ScreenshotMaker – Generates the screenshot
+
+Possible Interview Questions
+How do you capture full web page screenshot?
+
+Code 
+
+[TestMethod]
+public void FullWebPageScreenShotCapture()
+{
+ IWebDriver driver = new ChromeDriver();
+        driver.Manage().Window.Maximize();
+
+ driver.Url = "https://www.selenium.dev/";
+
+ // ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("oldFirefox.png");
+
+ VerticalCombineDecorator vcd = new VerticalCombineDecorator(new ScreenshotMaker().RemoveScrollBarsWhileShooting());
+        driver.TakeScreenshot(vcd).ToMagickImage().ToBitmap().Save("newChrome.png");
+
+ driver.Quit();
+}
+******************************************************************
+57
+#qa #selenium #eventfiringwebdriver #seleniumcsharp
+Agenda 
+What is an Event?
+What is an event listener?
+OpenQA.Selenium.Support.Events Namespace
+EventFiringWebDriver class
+Attaching the events
+Click events
+Element Value changing events
+Element finding events
+Navigation events
+Script execution events
+Exception thrown event
+
+What is an Event?
+An event is an action
+Clicking on an element, Finding an element, Element value changing, Navigating between pages, Capturing an exception and JavaScript execution are part of the events in selenium
+Capture events for logs and reports
+
+What is an event listener?
+An event listener is a method
+Executed when an event occurs
+It will have two parameter
+ Sender object
+ Object of one of the type of event class
+You can create an event listener using
+ Lambda expression
+ A separate method
+ An anonymous method
+Event listener methods are also called as event handlers
+
+EventFiringWebDriver class
+It is a wrapper around the regular driver instance
+It contains events
+The events rised can be used is reports and logs
+It is having a parameterized constructor which takes the parent driver
+WrappedDriver property contains the parent driver
+
+Attaching the events
+IWebDriver driver = new ChromeDriver();
+driver.Manage().Window.Maximize();
+
+// Wrapping parent driver             
+EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(driver);
+
+// Attaching events             
+// Attaching click events             
+eventFiringWebDriver.ElementClicking += EventFiringWebDriver_ElementClicking;
+
+Click events
+// Attaching click events             
+eventFiringWebDriver.ElementClicking += EventFiringWebDriver_ElementClicking; 
+eventFiringWebDriver.ElementClicked += EventFiringWebDriver_ElementClicked; 
+
+private void EventFiringWebDriver_ElementClicking(object sender, WebElementEventArgs e) 
+{             
+ Console.WriteLine("Element clicking");         
+}
+
+private void EventFiringWebDriver_ElementClicked(object sender, WebElementEventArgs e)
+{             
+ Console.WriteLine("Element clicked");         
+}         
+
+Element Value changing events
+// Element value change events             
+eventFiringWebDriver.ElementValueChanging += EventFiringWebDriver_ElementValueChanging; eventFiringWebDriver.ElementValueChanged += EventFiringWebDriver_ElementValueChanged;
+
+private void EventFiringWebDriver_ElementValueChanging(object sender, WebElementValueEventArgs e)     {             
+ Console.WriteLine("Element value changing");         
+}
+
+private void EventFiringWebDriver_ElementValueChanged(object sender, WebElementValueEventArgs e)      {             
+ Console.WriteLine("Element value changed");         
+}         
+
+Element finding events
+// Element finding events             
+eventFiringWebDriver.FindingElement += EventFiringWebDriver_FindingElement;            eventFiringWebDriver.FindElementCompleted += EventFiringWebDriver_FindElementCompleted;
+
+private void EventFiringWebDriver_FindingElement(object sender, FindElementEventArgs e)       
+{             
+ Console.WriteLine("Finding element");         
+}
+
+private void EventFiringWebDriver_FindElementCompleted(object sender, FindElementEventArgs e) {             
+ Console.WriteLine("Finding element completed");         
+}         
+
+Navigation events
+// Navigation events                         
+eventFiringWebDriver.Navigating += EventFiringWebDriver_Navigating;             
+eventFiringWebDriver.Navigated += EventFiringWebDriver_Navigated;             
+
+private void EventFiringWebDriver_Navigating(object sender, WebDriverNavigationEventArgs e)   {             
+ Console.WriteLine("Navigating to a page");         
+}
+
+private void EventFiringWebDriver_Navigated(object sender, WebDriverNavigationEventArgs e)    
+{
+ Console.WriteLine("Navigated to a page");         
+}         
+
+Navigation events (Forward)
+// Navigation forward events                         
+eventFiringWebDriver.NavigatingForward += EventFiringWebDriver_NavigatingForward;      eventFiringWebDriver.NavigatedForward += EventFiringWebDriver_NavigatedForward;        
+
+private void EventFiringWebDriver_NavigatingForward(object sender, WebDriverNavigationEventArgs e)    {             
+ Console.WriteLine("Navigating forward");         
+}
+
+private void EventFiringWebDriver_NavigatedForward(object sender, WebDriverNavigationEventArgs e)    {             
+ Console.WriteLine("Navigated forward");         
+}   
+
+Navigation events (Back)
+// Navigation back events                         
+eventFiringWebDriver.NavigatingBack += EventFiringWebDriver_NavigatingBack;            eventFiringWebDriver.NavigatedBack += EventFiringWebDriver_NavigatedBack;
+
+private void EventFiringWebDriver_NavigatingBack(object sender, WebDriverNavigationEventArgs e)       {             
+ Console.WriteLine("Navigating back");         
+}
+
+private void EventFiringWebDriver_NavigatedBack(object sender, WebDriverNavigationEventArgs e)       {             
+ Console.WriteLine("Navigated back");         
+}
+******************************************************************
+58
+
+******************************************************************
+59
+
+******************************************************************
+60
+
+******************************************************************
+61
+In this video we will see
+What is an SSL certificate
+When SSL certificate becomes invalid 
+Code demo on how to handle invalid SSL certificate error in Chrome & Firefox using selenium C#
+
+#selenium #seleniumcsharp #seleniumsslerror
+
+*When SSL certificate becomes invalid? *
+Site is using an expired certificate
+Certificate doesn’t include the website’s hostname
+Certificate is using the outdated algorithm and no longer trusted
+
+Possible Interview Questions on ssl certificate error in selenium
+What is an ssl certificate?
+How websites provide security to sensitive data?
+When ssl certificates becomes invalid?
+How to handle websites with invalid ssl certificates in selenium?
+
+*Code: *
+[TestMethod]
+        public void HandleInvalidSSLCertificateError()
+        {
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.AcceptInsecureCertificates = true;
+
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            firefoxOptions.AcceptInsecureCertificates = true;
+
+            IWebDriver driver = new FirefoxDriver(firefoxOptions);
+            driver.Manage().Window.Maximize();
+            driver.Url = "https://expired.badssl.com/";
+
+            Console.WriteLine(driver.FindElement(By.Id("content")).Text);
+            Thread.Sleep(2000);
+            driver.Quit();
+        }
+******************************************************************
+62
+
+******************************************************************
+63
+Data driven testing using excel EPPlus library 
+Create a utility method which reads excel file & returns data row by row
+
+What is EPPlus library
+EPPlus is a .NET library
+Reads and writes Excel files using the Open Office XML format (*.xlsx)
+
+ExcelPackage class
+ Represents an Excel  XLSX file package. 
+ This is the top level object  to access all parts of the document.
+ Has a FileInfo parameterized
+
+ExcelWorksheet class Represents an Excel worksheet and provides access to its properties and methods
+
+Cells Property
+ ReadOnly property
+ Returns a cell value when we provide Row and Column parameters
+
+
+ReadExcel() Method Code:
+
+public static IEnumerable lessthan object[]greaterthan ReadExcel()
+{
+ using (ExcelPackage package = new ExcelPackage(new FileInfo("data.xlsx")))
+ {
+  //get the first worksheet in the workbook
+                ExcelWorksheet worksheet = package.Workbook.Worksheets["Sheet1"];
+                int rowCount = worksheet.Dimension.End.Row;     //get row count
+                for (int row = 2; row lessthan= rowCount; row++)
+                {
+                        yield return new object[] {
+                        worksheet.Cells[row, 1].Value?.ToString().Trim(), // First name
+                        worksheet.Cells[row, 2].Value?.ToString().Trim(), // Last name
+                        worksheet.Cells[row, 3].Value?.ToString().Trim()  // Enrollment date
+                    };
+                }
+            }
+        }
+
+Test method code:
+[DynamicData(nameof(ReadExcel), DynamicDataSourceType.Method)]
+[TestMethod]
+public void DataDrivenTestingUsingExcelSheet(string fName, string lName, string eDate)
+{
+ IWebDriver driver = new ChromeDriver();
+        driver.Manage().Window.Maximize();
+        driver.Url = "http://uitestpractice.com/Students/Cr...";
+ 
+ driver.FindElement(By.Id("FirstName")).SendKeys(fName);
+        driver.FindElement(By.Id("LastName")).SendKeys(lName);
+        driver.FindElement(By.Id("EnrollmentDate")).SendKeys(eDate);
+        driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+
+ driver.Quit();
+        }
+
+
+Possible Interview Questions
+How to achieve the data driven testing using excel sheet
+What is EPPlus library?
+******************************************************************
+64
+
+******************************************************************
+65
+
+******************************************************************
+66
+
+******************************************************************
+67
+
