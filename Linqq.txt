@@ -1,0 +1,99 @@
+There are two types of linq syntaxes
+	1> Query syntax
+    2> Method syntax
+    
+Query syntax : (from abc in xyz_collection select abc.name).ToList();
+Method syntax : xyz_collection.Select(abc => abc.name).ToList();
+
+Prototype
+	1> Select
+    2>SelectMany
+    
+   Select (Query): (from abc in xyz_collection 
+   			select new Employee(){
+            Id = abc.Id,
+            Name = abc.Name
+            }).ToList();
+          	- Didn't convert one object to another
+            
+    Select (Method): xyz_collection.Select(abc => new Student(){
+            StdId = abc.Id,
+            StdName = abc.Name
+            }).ToList();
+            - Converted one object to another
+            
+    For anonymous remove class name and use new { }
+            (Method): xyz_collection.Select(abc => new {
+            StdId = abc.Id,
+            StdName = abc.Name
+            }).ToList();
+            - Converted one object to another
+
+        Dont want to assign object of class
+            (Method): xyz_collection.Select((abc,index) => new{ Index = index , Fullname = abc.Name }).ToList();
+	    
+FILTERING : There are 2 ways to filter
+	1> Where clause : Here we can  use conditions like <,>,<=,>= and || etc.
+	2> ofType : we can diff. on the basis of Data Type 
+		var ele = datasource.ofType<string>().Tolist();
+		we can also use where clause here
+		var ele = ds.ofType(int).where(x => x>3).ToList();
+
+SORTING : There are five ways to sort
+	1> orderBy
+	2> OrderByDescending
+	3> Then
+	4> ThenByAscending
+	5> Reverse
+	
+Orderby > order data in ascending order we can use where clause
+OrderBydescending > order data in descending order and we can also use where clause
+ThenBY > It is use to make second level on sorting in ascending ,It only use after where clause
+	vae ms = dataSource.OrderBy(emp => emp.firstName).ThenBy(emp => emo.lastName).ToList();
+	We can use n number of thenBy method
+ThenByDescending > It is use to make second level on sorting  in descending ,It only use after where clause
+Reverse > It reverse the data
+		For int : var xyz = Rollno.Reverse().ToList();
+		For string : Direct > name.Reverse();
+			to use var : var cv = name.AsEnumerable.Reverse().ToList();
+
+Quantifier Operations : It is use to check condition > Returs boolean value
+1 > All (Is all the element satisfy the condition)
+2 > Any (Is any one elemrnt satisfy the condition)
+3 > Contain (Is that particular part contins in data element)
+
+All > var x = students.All(student => student.marks > 70 );
+      var studentsss = students.Where(std => std.Subject.All(x => x.subjectmark > 70)).select(std).ToList();	
+Any > We can use Any to check whether is there is data or not.
+	var isAvailable = numbers.Any();
+      var s = students.Any(std => std.marks > 80);
+      var studentsss = students.Where(std => std.Subject.Any(x => x.subjectmark > 90)).select(std).ToList();
+Contains same as we discussed but complex in video
+
+Set Operation > As we know here we have to deal with multiple datasource at a time 
+Different type of Set operators
+1> Distinct > remove duplicate value from the datasource
+2> Except > returns alll the elements from one datasouce which is not exist on another data source
+3> Interscet > returns common elements form two dataources
+4> Union > Combile all the elements from multiplwe datasourceas and also removes the duplicate
+
+Distict : var x = dataSource.Select(y => y.name).Distinct().ToList();
+Except : li = [1,2,3,4] l2 = [3,4,5,6]
+	var ms = l1.Except(l2).Tolist();
+	var mss = sudent.Select(x => x.name).Except(student1.Select(y => y.name)).ToList(); 
+Intersect > var qw = student.Select(x => new{x.Id,x.name}).Interscet(student1.Select(x => new{x.Id,x.name})).ToList();
+Union > var qw = student.Select(x => new{x.Id,x.name}).Union(student1.Select(x => new{x.Id,x.name})).ToList();
+
+Partition Method > It is used to get certain part of data
+1> Take : Gives first n counts from datasiurce
+	var ms = student.where(x => x.id >3).Take(4).ToList();
+2>TakeWhiile : Give elements in datasource until given condition is satisfied
+	VAR WS = dataSource.TakeWhile(x => x > 7).ToList();
+3>Skip : Reverse of Take
+4 >SkipWhile : Reverse of Take While\
+
+Paging: its for web developement purpose but can use this formula
+	dataSource.(Skip(cnum - 1)*permun).Take(pernum);
+
+
+

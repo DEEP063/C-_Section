@@ -1,0 +1,9 @@
+D:\linq\LINQQ\LINQQ\bin\Debug\LINQQ.exe.config
+D:\linq\LINQQ\LINQQ\bin\Debug\LINQQ.exe
+D:\linq\LINQQ\LINQQ\bin\Debug\LINQQ.pdb
+D:\linq\LINQQ\LINQQ\obj\Debug\LINQQ.csproj.AssemblyReference.cache
+D:\linq\LINQQ\LINQQ\obj\Debug\LINQQ.Properties.Resources.resources
+D:\linq\LINQQ\LINQQ\obj\Debug\LINQQ.csproj.GenerateResource.cache
+D:\linq\LINQQ\LINQQ\obj\Debug\LINQQ.csproj.CoreCompileInputs.cache
+D:\linq\LINQQ\LINQQ\obj\Debug\LINQQ.exe
+D:\linq\LINQQ\LINQQ\obj\Debug\LINQQ.pdb
